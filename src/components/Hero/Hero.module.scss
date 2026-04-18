@@ -11,12 +11,13 @@
   /* 🔥 FIXED LAYOUT SYSTEM */
   max-width: 1600px;
   margin: 0 auto;
-  padding: 20 1rem; // ✅ 24px left/right
+
+  padding: 0 1.5rem; // ✅ FIXED (was invalid + now true 24px)
 
   padding-top: $nav-height;
 }
 
-/* TEXT WIDTH CONTROL (moved from container) */
+/* TEXT WIDTH CONTROL (unchanged) */
 .headline {
   font-size: clamp(2.5rem, 6vw, 5rem);
   font-weight: 600;
@@ -25,8 +26,7 @@
   color: $white;
 
   margin-bottom: 1.25rem;
-
-  max-width: 800px; // ✅ controls text width properly
+  max-width: 800px;
 }
 
 .sub {
@@ -49,5 +49,13 @@
 
   &:hover {
     opacity: 0.85;
+  }
+}
+
+/* ✅ ADD THIS (mobile spacing fix) */
+@media (max-width: $mobile) {
+  .hero {
+    padding: 0 1.25rem; // slightly tighter on mobile
+    padding-top: $nav-height;
   }
 }
