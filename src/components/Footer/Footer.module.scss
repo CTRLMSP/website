@@ -1,0 +1,94 @@
+.footer {
+  border-top: 1px solid #2a2a2a;
+
+  margin-top: 6rem;              // 🔥 separation from hero
+  padding: 4rem 0 2.5rem;
+
+  /* subtle depth (optional but recommended) */
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 255, 255, 0.02)
+  );
+}
+
+/* MATCH NAVBAR + CONTROL WIDTH */
+.content {
+  max-width: 1200px;            // 🔥 prevents stretched look
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* GRID */
+.columns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5rem;                    // 🔥 tighter than 6rem
+  margin-bottom: 3.5rem;
+}
+
+/* COLUMN */
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;                 // 🔥 tighter vertical rhythm
+
+  a {
+    font-size: 0.875rem;
+    color: #a1a1a1;
+    line-height: 1.4;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #ffffff;
+    }
+  }
+}
+
+/* TITLE */
+.title {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6b6b6b;
+  margin-bottom: 0.75rem;       // 🔥 more breathing room from links
+}
+
+/* BOTTOM ROW */
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 2rem;             // 🔥 separates from columns
+  padding-top: 1rem;
+
+  font-size: 0.8rem;
+  color: #a1a1a1;
+}
+
+/* SOCIAL ICONS */
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;                  // 🔥 tighter + cleaner
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #a1a1a1;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: #ffffff;
+      transform: translateY(-1px); // 🔥 subtle premium feel
+    }
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
