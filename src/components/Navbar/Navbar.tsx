@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import styles from './Navbar.module.scss';
 
 export default function Navbar() {
@@ -21,7 +20,9 @@ export default function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [menuOpen]);
 
   return (
@@ -30,11 +31,11 @@ export default function Navbar() {
         
         {/* LEFT: LOGO */}
         <Link href="/" className={styles.logo}>
-          <Image
+          <img
             src="/favicon.ico"
             alt="CTRL MSP logo"
-            width={26}   // ⬅️ increased
-            height={26}  // ⬅️ increased
+            width={26}
+            height={26}
           />
           <span>CTRL MSP</span>
         </Link>
@@ -54,7 +55,9 @@ export default function Navbar() {
 
           {/* HAMBURGER */}
           <button
-            className={`${styles.hamburger} ${menuOpen ? styles.hamburgerOpen : ''}`}
+            className={`${styles.hamburger} ${
+              menuOpen ? styles.hamburgerOpen : ''
+            }`}
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           >
@@ -67,9 +70,15 @@ export default function Navbar() {
 
       {/* MOBILE MENU */}
       <div className={`${styles.mobileMenu} ${menuOpen ? styles.open : ''}`}>
-        <Link href="/services" onClick={() => setMenuOpen(false)}>Services</Link>
-        <Link href="/about" onClick={() => setMenuOpen(false)}>About</Link>
-        <Link href="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
+        <Link href="/services" onClick={() => setMenuOpen(false)}>
+          Services
+        </Link>
+        <Link href="/about" onClick={() => setMenuOpen(false)}>
+          About
+        </Link>
+        <Link href="/contact" onClick={() => setMenuOpen(false)}>
+          Contact
+        </Link>
 
         <Link
           href="/contact"
