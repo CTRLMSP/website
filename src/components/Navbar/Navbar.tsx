@@ -29,10 +29,10 @@ export default function Navbar() {
     <>
       <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
         
-        {/* LEFT: LOGO */}
+        {/* LOGO */}
         <Link href="/" className={styles.logo}>
           <img
-            src="/favicon.ico"
+            src="/CTRL.png"
             alt="CTRL MSP logo"
             width={26}
             height={26}
@@ -40,7 +40,7 @@ export default function Navbar() {
           <span>CTRL MSP</span>
         </Link>
 
-        {/* CENTER */}
+        {/* LINKS */}
         <div className={styles.links}>
           <Link href="/services">Services</Link>
           <Link href="/about">About</Link>
@@ -53,13 +53,12 @@ export default function Navbar() {
             Get in touch
           </Link>
 
-          {/* HAMBURGER */}
           <button
             className={`${styles.hamburger} ${
               menuOpen ? styles.hamburgerOpen : ''
             }`}
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-label="Toggle menu"
           >
             <span />
             <span />
@@ -70,15 +69,9 @@ export default function Navbar() {
 
       {/* MOBILE MENU */}
       <div className={`${styles.mobileMenu} ${menuOpen ? styles.open : ''}`}>
-        <Link href="/services" onClick={() => setMenuOpen(false)}>
-          Services
-        </Link>
-        <Link href="/about" onClick={() => setMenuOpen(false)}>
-          About
-        </Link>
-        <Link href="/contact" onClick={() => setMenuOpen(false)}>
-          Contact
-        </Link>
+        <Link href="/services" onClick={() => setMenuOpen(false)}>Services</Link>
+        <Link href="/about" onClick={() => setMenuOpen(false)}>About</Link>
+        <Link href="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
 
         <Link
           href="/contact"

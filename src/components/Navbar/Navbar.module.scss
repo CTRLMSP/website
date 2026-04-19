@@ -5,13 +5,13 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 72px; // ⬅️ bigger navbar
+  height: 72px;
 
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
 
-  padding: 0 calc(#{$container-padding} + 0.5rem); // ⬅️ more breathing room
+  padding: 0 calc(#{$container-padding} + 0.5rem);
   background-color: $black;
 
   border-bottom: 1px solid transparent;
@@ -33,20 +33,24 @@
   align-items: center;
   gap: 0.65rem;
 
-  font-size: 1.05rem; // ⬅️ slightly larger
+  font-size: 1.05rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   color: $white;
+
+  img {
+    display: block;
+  }
 }
 
 /* CENTER LINKS */
 .links {
   display: flex;
-  gap: 2rem; // ⬅️ more spacing
+  gap: 2rem;
   justify-self: center;
 
   a {
-    font-size: 0.95rem; // ⬅️ slightly larger
+    font-size: 0.95rem;
     color: $gray-light;
     transition: color 0.2s ease;
 
@@ -67,7 +71,7 @@
 /* CTA */
 .btnOutline {
   font-size: 0.9rem;
-  padding: 0.6rem 1.25rem; // ⬅️ bigger click area
+  padding: 0.6rem 1.25rem;
   border: 1px solid $border;
   border-radius: 7px;
   color: $white;
@@ -88,10 +92,9 @@
   border: none;
   cursor: pointer;
   padding: 0.25rem;
-  z-index: 200;
 
   span {
-    width: 24px; // ⬅️ slightly larger
+    width: 24px;
     height: 2px;
     background-color: $white;
     display: block;
@@ -154,10 +157,9 @@
 /* RESPONSIVE */
 @media (max-width: $mobile) {
   .nav {
-    height: 64px; // ⬅️ slightly smaller on mobile
+    height: 64px;
     grid-template-columns: 1fr auto;
     padding: 0 $container-padding-mobile;
-    z-index: 200;
   }
 
   .links {
