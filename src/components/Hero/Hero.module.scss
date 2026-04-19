@@ -7,17 +7,21 @@
   justify-content: center;
 
   min-height: 100vh;
+  min-height: 100svh;
 
-  /* 🔥 FIXED LAYOUT SYSTEM */
   max-width: 1600px;
   margin: 0 auto;
 
-  padding: 0 1.5rem; // ✅ FIXED (was invalid + now true 24px)
-
+  padding: 0 1.5rem;
   padding-top: $nav-height;
 }
 
-/* TEXT WIDTH CONTROL (unchanged) */
+/* ✅ NEW: pushes content to the right responsively */
+.content {
+  padding-left: clamp(1rem, 6vw, 6rem);
+}
+
+/* TEXT WIDTH CONTROL */
 .headline {
   font-size: clamp(2.5rem, 6vw, 5rem);
   font-weight: 600;
@@ -39,6 +43,7 @@
 }
 
 .cta {
+  display: inline-block;
   font-size: 0.875rem;
   padding: 0.6rem 1.25rem;
   background-color: $white;
@@ -50,12 +55,22 @@
   &:hover {
     opacity: 0.85;
   }
+
+  &:focus-visible {
+    outline: 2px solid $white;
+    outline-offset: 2px;
+  }
 }
 
-/* ✅ ADD THIS (mobile spacing fix) */
+/* MOBILE */
 @media (max-width: $mobile) {
   .hero {
-    padding: 0 1.25rem; // slightly tighter on mobile
+    padding: 0 1.25rem;
     padding-top: $nav-height;
+  }
+
+  /* reduce the shift on smaller screens */
+  .content {
+    padding-left: clamp(0rem, 4vw, 2rem);
   }
 }

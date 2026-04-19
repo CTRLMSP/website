@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './Navbar.module.scss';
 
 export default function Navbar() {
@@ -18,7 +19,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
@@ -27,9 +27,16 @@ export default function Navbar() {
   return (
     <>
       <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
-        {/* LEFT */}
+        
+        {/* LEFT: LOGO */}
         <Link href="/" className={styles.logo}>
-          CTRL MSP
+          <Image
+            src="/favicon.ico"
+            alt="CTRL MSP logo"
+            width={26}   // ⬅️ increased
+            height={26}  // ⬅️ increased
+          />
+          <span>CTRL MSP</span>
         </Link>
 
         {/* CENTER */}
@@ -43,9 +50,6 @@ export default function Navbar() {
         <div className={styles.right}>
           <Link href="/contact" className={styles.btnOutline}>
             Get in touch
-          </Link>
-          <Link href="/contact" className={styles.btnFill}>
-            Book a call
           </Link>
 
           {/* HAMBURGER */}
@@ -66,6 +70,14 @@ export default function Navbar() {
         <Link href="/services" onClick={() => setMenuOpen(false)}>Services</Link>
         <Link href="/about" onClick={() => setMenuOpen(false)}>About</Link>
         <Link href="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
+
+        <Link
+          href="/contact"
+          onClick={() => setMenuOpen(false)}
+          className={styles.mobileCTA}
+        >
+          Get in touch
+        </Link>
       </div>
     </>
   );
